@@ -64,16 +64,16 @@ DOWNLOAD_DELAY = 3
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'Windeln_Bot.pipelines.MongoPipeline': 300,
-}
+# ITEM_PIPELINES = {
+#    'Windeln_Bot.pipelines.MongoPipeline': 300,
+# }
 
 # ITEM_PIPELINES = {
 #    'WMF_Bot.pipelines.MongoPipeline': 300,
 #    #  'WMF_Bot.pipelines.PandasPipeline' : 300,
 # }
-MONGO_URI = 'mongodb://frank:test@ds113936.mlab.com:13936/testdatabase'
-MONGO_DATABASE = 'testdatabase'
+# MONGO_URI = 'mongodb://frank:test@ds113936.mlab.com:13936/testdatabase'
+# MONGO_DATABASE = 'testdatabase'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
