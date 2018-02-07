@@ -3,24 +3,17 @@ import scrapy
 from Windeln_Bot.items import WindelnBotItem
 
 
-
-class BrandsspiderSpider(scrapy.Spider):
+class BabybjoernSpider(scrapy.Spider):
     name = 'Babybjoern'
     allowed_domains = ['windeln.de']
-    start_urls = ['https://www.windeln.de/babybjoern/']
+    start_urls = ['https://www.windeln.com.cn/babybjoern/']
 
-    def parse(self,response):
+    def parse(self, response):
         item = WindelnBotItem()
-        item['name'] = response.css('h3.name::text')[0].extract()
-        item['eans'] = response.css('a.product-link::attr(eans)')[0].extract()
-        item['img'] = response.css('div.wrapper > img::attr(data-src)')[0].extract()
-        yield item
-
-
-    
-
-
-
-
-
+        products = response.css("div.productlink-inner")
+        for product in products:
+            item['eans'] = product.css("a::attr(eans)").extract_first()
+            item['name'] = product.css("a::attr(title)").extract_first()
+            item['img'] = product.css("a > div.wrapper > img::attr(data-src)").extract_first()
+            yield item
 
